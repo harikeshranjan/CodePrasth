@@ -21,7 +21,7 @@ export default function PageLocation() {
 
 
   return (
-    <Breadcrumb className="hidden md:block md:fixed top-14 right-20 w-[calc(100vw-26rem)] mx-auto py-3 px-14 bg-white dark:bg-neutral-950">
+    <Breadcrumb className="hidden md:block md:fixed top-14 right-20 z-50 w-[calc(100vw-26rem)] mx-auto py-3 px-14 bg-white dark:bg-neutral-950">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>

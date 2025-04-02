@@ -24,7 +24,7 @@ export const languages = [
     id: "vercel",
     title: "Vercel",
     description: "Vercel is a cloud platform for static sites and Serverless Functions.",
-    path: "/reference/vercel/deploying-express-server-with-typescript",
+    path: "/reference/vercel/deployment/express-ts-deployment",
   }
 ];
 
@@ -44,6 +44,21 @@ export const nextauthSidebarLinks = [
         title: "Google Auth Setup",
         path: "/reference/nextauth/google-auth-setup",
         isUnderConstruction: true,
+      }
+    ],
+  },
+]
+
+export const vercelSidebarLinks = [
+  {
+    id: "deployment",
+    heading: "Deployment",
+    content: [
+      {
+        id: "express-ts-deployment",
+        title: "Express TS Deployment",
+        path: "/reference/vercel/deployment/express-ts-deployment",
+        isUnderConstruction: false,
       }
     ],
   },

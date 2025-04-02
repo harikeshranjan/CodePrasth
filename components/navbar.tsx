@@ -4,7 +4,7 @@ import Link from "next/link";
 import { navbarLinks } from "@/lib/datalists";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Badge, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import ModeToggle from "./mode-toggle";

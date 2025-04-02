@@ -107,7 +107,7 @@ export default function CredentialSetup() {
                 </TabsList>
 
                 {credentialSetupCodes.map(code => (
-                  <TabsContent value={code.id} className="mt-0">
+                  <TabsContent key={code.id} value={code.id} className="mt-0">
                     <div className="rounded-md border border-border">
                       <div className="flex items-center justify-between border-b border-border px-4 py-2">
                         <div className="flex items-center gap-2">

@@ -171,7 +171,7 @@ export default function ExpressTSDeployment() {
                       <div>
                         <h3 className="font-medium">Execute <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">git init</code></h3>
                         <p className="text-sm text-muted-foreground mt-1">
-                          Run this in the terminal (from the root of the project) or you can use VS Code's source control tab to initialize the git repository.
+                          {`Run this in the terminal (from the root of the project) or you can use VS Code's source control tab to initialize the git repository.`}
                         </p>
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default function ExpressTSDeployment() {
                       <div>
                         <h3 className="font-medium">Connect local repo to remote</h3>
                         <p className="text-sm text-muted-foreground mt-1">
-                          You can use any version control system (GitHub/Bitbucket) to publish your repository.
+                          {`You can use any version control system (GitHub/Bitbucket) to publish your repository.`}
                         </p>
                       </div>
                     </div>
@@ -227,7 +227,7 @@ export default function ExpressTSDeployment() {
                       <span className="font-medium">ERROR 🚨</span>
                     </div>
                     <p className="text-muted-foreground mt-4">
-                      Don't worry... Just follow the next steps to fix it. 👍
+                      {`Don't worry... Just follow the next steps to fix it. 👍`}
                     </p>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function ExpressTSDeployment() {
                 <div className="space-y-6 mt-6">
                   <div>
                     <p className="text-muted-foreground mb-4">
-                      In the above step, after your first deploy is completed, you can see that we're not getting <code className="px-1 py-0.5 rounded bg-muted font-mono text-xs">Express Typescript on Vercel</code> response from the API.
+                      In the above step, after your first deploy is completed, you can see that we&apos;re not getting <code className="px-1 py-0.5 rounded bg-muted font-mono text-xs">Express Typescript on Vercel</code> response from the API.
                     </p>
                     <p className="text-muted-foreground mb-4">
                       To make this work as expected, we need to tell Vercel that this is an API and you need to serve this as a serverless function.
@@ -334,7 +334,7 @@ export default function ExpressTSDeployment() {
                         <div>
                           <span className="font-medium">What this will do?</span>
                           <p className="text-sm text-muted-foreground mt-1">
-                            Whenever you commit, the commands written in pre-commit will be executed. It will check TypeScript errors, build the project, and add the build folder to the staged changes. (If you opt for manual build, don't forget to run the build command to start build.)
+                            {`Whenever you commit, the commands written in pre-commit will be executed. It will check TypeScript errors, build the project, and add the build folder to the staged changes. (If you opt for manual build, don't forget to run the build command to start build.)`}
                           </p>
                         </div>
                       </div>

@@ -213,7 +213,7 @@ export default function ExpressTSDeployment() {
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle size={16} className="text-primary" />
-                      <p className="text-muted-foreground">Login using the Version control platform where you've kept your repository</p>
+                      <p className="text-muted-foreground">{`Login using the Version control platform where you've kept your repository`}</p>
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle size={16} className="text-primary" />

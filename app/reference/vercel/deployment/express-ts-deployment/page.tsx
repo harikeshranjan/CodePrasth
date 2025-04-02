@@ -1,3 +1,4 @@
+import { indexTS, installPackage, preCommitCmd, preCommitPackageJson, preCommitScript, scriptPackageJson, tsconfig, tsconfigCmd, vercelJson } from "@/codes/vercel/deployement/express-ts-deployment";
 import CopyButton from "@/components/copy-button";
 import PageLocation from "@/components/page-location";
 import { Badge } from "@/components/ui/badge";
@@ -59,12 +60,7 @@ export default function ExpressTSDeployment() {
                       <h3 className="font-medium">{`Install packages (you can use npm/yarn/pnpm)`}</h3>
                     </div>
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`npm i express
-npm i -D typescript
-npm i -D @types/node
-npm i -D @types/express
-npm i -D nodemon
-npm i -D ts-node`}</pre>
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{installPackage}</pre>
                       <CopyButton code="npm i express\nnpm i -D typescript\nnpm i -D @types/node\nnpm i -D @types/express\nnpm i -D nodemon\nnpm i -D ts-node" />
                     </div>
                   </div>
@@ -78,30 +74,14 @@ npm i -D ts-node`}</pre>
                       To work with TypeScript we need to make tsconfig.json file which will help to compile and build TypeScript files in plain JS. Execute the command below:
                     </p>
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true</pre>
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{tsconfigCmd}</pre>
                       <CopyButton code="npx tsc --init --rootDir src --outDir build --esModuleInterop --resolveJsonModule --lib es6 --module commonjs --allowJs true --noImplicitAny true" />
                     </div>
                     <p className="text-sm text-muted-foreground">
                       Once the file is created you can keep it as is, or clean up non-necessary stuff. Replace content of <code className="px-1 py-0.5 rounded bg-muted font-mono text-xs">tsconfig.json</code> with the following:
                     </p>
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`{
-  "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
-  },
-  "include": ["./src/**/*"]
-}`}</pre>
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{tsconfig}</pre>
                       <CopyButton code={`{
   "compilerOptions": {
     "module": "commonjs",
@@ -128,7 +108,7 @@ npm i -D ts-node`}</pre>
                       <h3 className="font-medium">Update <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">scripts</code> in <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">package.json</code></h3>
                     </div>
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">"start": "nodemon src/index.ts",</pre>
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{scriptPackageJson}</pre>
                       <CopyButton code='"start": "nodemon src/index.ts",' />
                     </div>
                   </div>
@@ -139,38 +119,8 @@ npm i -D ts-node`}</pre>
                       <h3 className="font-medium">Write express server code: Create file: <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">src/index.ts</code></h3>
                     </div>
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`import express, { Request, Response } from 'express'
-
-const app = express()
-const port = process.env.PORT || 8080
-
-app.get('/', (_req: Request, res: Response) => {
-  return res.send('Express Typescript on Vercel')
-})
-
-app.get('/ping', (_req: Request, res: Response) => {
-  return res.send('pong 🏓')
-})
-
-app.listen(port, () => {
-  return console.log(\`Server is listening on \${port}\`)
-})`}</pre>
-                      <CopyButton code={`import express, { Request, Response } from 'express'
-
-const app = express()
-const port = process.env.PORT || 8080
-
-app.get('/', (_req: Request, res: Response) => {
-  return res.send('Express Typescript on Vercel')
-})
-
-app.get('/ping', (_req: Request, res: Response) => {
-  return res.send('pong 🏓')
-})
-
-app.listen(port, () => {
-  return console.log(\`Server is listening on \${port}\`)
-})`} />
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{indexTS}</pre>
+                      <CopyButton code={indexTS} />
                     </div>
                   </div>
                   
@@ -308,38 +258,8 @@ app.listen(port, () => {
                     </p>
                     
                     <div className="relative">
-                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`{
-    "version": 2,
-    "builds": [
-        {
-            "src": "dist/index.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/index.js"
-        }
-    ]
-}`}</pre>
-                      <CopyButton code={`{
-    "version": 2,
-    "builds": [
-        {
-            "src": "dist/index.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/index.js"
-        }
-    ]
-}`} />
+                      <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{vercelJson}</pre>
+                      <CopyButton code={vercelJson} />
                     </div>
                     
                     <div className="mt-6 p-4 rounded-md border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-900/50">
@@ -381,9 +301,8 @@ app.listen(port, () => {
                         <h3 className="font-medium">Install <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">pre-commit</code> and <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">rimraf</code> packages</h3>
                       </div>
                       <div className="relative">
-                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`npm i -D pre-commit
-npm i -D rimra`}f</pre>
-                        <CopyButton code="npm i -D pre-commit\nnpm i -D rimraf" />
+                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{preCommitCmd}f</pre>
+                        <CopyButton code={preCommitCmd} />
                       </div>
                     </div>
                     
@@ -393,20 +312,8 @@ npm i -D rimra`}f</pre>
                         <h3 className="font-medium">Modify <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">scripts</code> field in <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">package.json</code> file</h3>
                       </div>
                       <div className="relative">
-                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`"scripts": {
-  "start": "nodemon src/index.ts",
-  "build": "rimraf dist && tsc",
-  "ts.check": "tsc --project tsconfig.json",
-  "add-build": "git add dist",
-  "test": "echo \\"Error: no test specified\\" && exit 1"
-}`}</pre>
-                        <CopyButton code={`"scripts": {
-  "start": "nodemon src/index.ts",
-  "build": "rimraf dist && tsc",
-  "ts.check": "tsc --project tsconfig.json",
-  "add-build": "git add dist",
-  "test": "echo \\"Error: no test specified\\" && exit 1"
-}`} />
+                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{preCommitScript}</pre>
+                        <CopyButton code={preCommitScript} />
                       </div>
                     </div>
                     
@@ -416,16 +323,8 @@ npm i -D rimra`}f</pre>
                         <h3 className="font-medium">Add new field <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">pre-commit</code> in <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-sm">package.json</code></h3>
                       </div>
                       <div className="relative">
-                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{`"pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-]`}</pre>
-                        <CopyButton code={`"pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-]`} />
+                        <pre className="bg-muted/50 p-4 rounded-md overflow-x-auto text-sm font-mono">{preCommitPackageJson}</pre>
+                        <CopyButton code={preCommitPackageJson} />
                       </div>
                     </div>
                     
@@ -471,7 +370,7 @@ npm i -D rimra`}f</pre>
                         </p>
                         <div className="mt-4 px-4 py-3 bg-green-500/10 text-green-600 border border-green-200 rounded-md flex items-center gap-2 font-medium">
                           <CheckCircle size={18} />
-                          <span>Hurrah! 😃 Your Express TypeScript app is now live on Vercel!</span>
+                          <span>Hurrah! Your Express TypeScript app is now live on Vercel!</span>
                         </div>
                       </div>
                     </div>

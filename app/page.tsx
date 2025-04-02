@@ -49,7 +49,6 @@ export default function Home() {
         </div>
         <LanguageBoxes
           languages={languages}
-          title="reference"
         />
       </section>
     </main>

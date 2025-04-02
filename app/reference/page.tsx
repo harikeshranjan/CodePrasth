@@ -34,7 +34,6 @@ export default function ReferencePage() {
         </div>
         <LanguageBoxes
           languages={languages}
-          title="reference"
         />
       </section>
     </main>

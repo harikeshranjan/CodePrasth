@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className="w-full text-4xl md:text-5xl font-bold text-primary/95 px-16 py-5 mt-10 text-center">Code<span className="text-5xl md:text-7xl">Prasth</span> - The directory for developers</h1>
         <p className="text-lg md:text-xl text-primary/50 text-center px-16 max-w-4xl">Never struggle with setup again! We provides ready-to-use <span className="text-primary">code snippets</span> for the trickiest coding tasks—just <span className="text-primary">copy, paste, and code faster</span>.</p>
         <div className="w-full flex flex-col md:flex-row justify-center items-center">
-          <div className="space-y-4 md:space-y-0 md:space-x-4 p-10">
+          <div className="space-x-5 md:space-y-0 md:space-x-4 p-10">
             <Button
               variant={"default"}
               className="h-12 w-28 text-lg tracking-wide cursor-pointer"

@@ -1,6 +1,6 @@
 import LanguageBoxes from "@/components/language-boxes";
 import PageLocation from "@/components/page-location";
-import { languages, learnLanguages } from "@/lib/datalists";
+import { learnLanguages } from "@/lib/datalists";
 import { ChevronDownIcon } from "lucide-react";
 
 export default function LearnPage() {

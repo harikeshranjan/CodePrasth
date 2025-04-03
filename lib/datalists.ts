@@ -9,7 +9,7 @@ export const navbarLinks = [
     id: "learn",
     title: "Learn",
     path: "/learn",
-    isUnderConstruction: true
+    isUnderConstruction: false
   },
 ] as const;
 
@@ -82,7 +82,7 @@ export const learnLanguages = [
     title: "NumPy",
     description: "NumPy is the fundamental package for scientific computing with Python.",
     path: "/learn/numpy/getting-started",
-    isUnderConstruction: true,
+    isUnderConstruction: false,
   },
 ]
 

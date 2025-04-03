@@ -13,6 +13,7 @@ export const navbarLinks = [
   },
 ] as const;
 
+// This is the list of languages that are used in the reference section of the website
 export const languages = [
   {
     id: "nextauth",
@@ -37,6 +38,7 @@ export const languages = [
   }
 ];
 
+// This is the sidebar links for the reference section
 export const nextauthSidebarLinks = [
   {
     id: "setup",
@@ -71,4 +73,43 @@ export const vercelSidebarLinks = [
       }
     ],
   },
+]
+
+// This is the list of the languages that are used in the learn section of the website
+export const learnLanguages = [
+  {
+    id: "numpy",
+    title: "NumPy",
+    description: "NumPy is the fundamental package for scientific computing with Python.",
+    path: "/learn/numpy/getting-started",
+    isUnderConstruction: true,
+  },
+]
+
+// This is the sidebar links for the learn section
+export const numpySidebarLinks = [
+  {
+    id: "getting-started",
+    heading: "Getting Started",
+    content: [
+      {
+        id: "numpy-installation",
+        title: "NumPy Installation",
+        path: "/learn/numpy/getting-started/numpy-installation",
+        isUnderConstruction: false,
+      },
+      {
+        id: "basics",
+        title: "Basics",
+        path: "/learn/numpy/basics",
+        isUnderConstruction: false,
+      },
+      {
+        id: "numpy-operations",
+        title: "NumPy Operations",
+        path: "/learn/numpy/operations",
+        isUnderConstruction: true,
+      }
+    ],
+  }
 ]

@@ -48,7 +48,7 @@ export default function Navbar() {
 
       <div className="h-full flex items-center space-x-4 pr-4 border-r border-dashed border-foreground/20">
         <span className="text-sm text-foreground/50 font-mono items-center justify-center">
-          v1.0.0
+          v1.1.0
         </span>
         <Link href="https://github.com/harikeshranjan/CodePrasth" className="cursor-pointer p-0.5 rounded-md hover:bg-white/5 transition-colors flex items-center justify-center">
           {mounted && (

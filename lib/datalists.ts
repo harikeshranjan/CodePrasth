@@ -95,7 +95,7 @@ export const numpySidebarLinks = [
       {
         id: "numpy-installation",
         title: "NumPy Installation",
-        path: "/learn/numpy/getting-started/numpy-installation",
+        path: "/learn/numpy/getting-started/",
         isUnderConstruction: false,
       },
       {
@@ -107,7 +107,7 @@ export const numpySidebarLinks = [
       {
         id: "numpy-operations",
         title: "NumPy Operations",
-        path: "/learn/numpy/operations",
+        path: "/learn/numpy/numpy-operations",
         isUnderConstruction: true,
       }
     ],

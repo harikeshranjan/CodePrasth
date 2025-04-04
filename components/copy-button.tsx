@@ -27,10 +27,10 @@ export default function CopyButton({ code, className = "" }: CopyButtonProps) {
         <TooltipTrigger asChild>
           <button
             onClick={copyToClipboard}
-            className={`absolute top-3 right-3 p-1.5 rounded-md border border-border hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all ${
+            className={`absolute top-3 right-3 p-1.5 rounded-md border border-border hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all cursor-pointer ${
               copied ? 'bg-primary/10 text-primary border-primary/30' : 'bg-background text-muted-foreground'
             } ${className}`}
-            aria-label={copied ? "Copied" : "Copy to clipboard"}
+            aria-label={copied ? "Copied" : "Copy"}
           >
             {copied ? (
               <Check size={16} className="text-primary" />
@@ -40,7 +40,7 @@ export default function CopyButton({ code, className = "" }: CopyButtonProps) {
           </button>
         </TooltipTrigger>
         <TooltipContent side="left" align="center" className="text-xs">
-          {copied ? "Copied!" : "Copy to clipboard"}
+          {copied ? "Copied!" : "Copy"}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

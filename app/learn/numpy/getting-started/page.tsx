@@ -14,7 +14,7 @@ export default function NumpyGettingStarted() {
 
   return (
     <main className="w-full">
-      <section className="min-h-screen flex flex-col mb-10 md:pt-16 md:mx-16 border-x border-foreground/10 border-dashed overflow-y-auto">
+      <section className="min-h-screen flex flex-col pb-10 md:pt-18 md:mx-16 border-x border-foreground/10 border-dashed overflow-y-auto">
         <PageLocation />
 
         <div className="md:ml-72 mt-8 px-7 max-w-4xl">
@@ -82,11 +82,11 @@ export default function NumpyGettingStarted() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-slate-950 text-slate-50 p-4 rounded-md font-mono text-sm mb-4">
+                  <div className="bg-neutral-950 text-neutral-50 p-4 rounded-md font-mono text-sm mb-4">
                     pip install numpy
                   </div>
                   <p>To install a specific version:</p>
-                  <div className="bg-slate-950 text-slate-50 p-4 rounded-md font-mono text-sm mt-2">
+                  <div className="bg-neutral-950 text-neutral-50 p-4 rounded-md font-mono text-sm mt-2">
                     {`pip install numpy==1.24.3`}
                   </div>
                 </CardContent>
@@ -113,7 +113,7 @@ export default function NumpyGettingStarted() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-slate-950 text-slate-50 p-4 rounded-md font-mono text-sm">
+                  <div className="bg-neutral-950 text-neutral-50 p-4 rounded-md font-mono text-sm">
                     conda install numpy
                   </div>
                 </CardContent>
@@ -132,7 +132,7 @@ export default function NumpyGettingStarted() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-slate-950 text-slate-50 p-4 rounded-md font-mono text-sm">
+                  <div className="bg-neutral-950 text-neutral-50 p-4 rounded-md font-mono text-sm">
                     {`git clone https://github.com/numpy/numpy.git`}<br />
                     {`cd numpy`}<br />
                     {`pip install -e .`}
@@ -158,7 +158,7 @@ export default function NumpyGettingStarted() {
             </CardHeader>
             <CardContent>
               <p className="mb-4">{`After installation, verify that NumPy works by importing it in Python:`}</p>
-              <div className="bg-slate-950 text-slate-50 p-4 rounded-md font-mono text-sm mb-4">
+              <div className="bg-neutral-950 text-neutral-50 p-4 rounded-md font-mono text-sm mb-4">
                 $ python<br />
                 {`>>> import numpy as np`}<br />
                 {`>>> print(np.__version__)`}<br />

@@ -23,7 +23,7 @@ export default function PageLocation() {
   return (
     <Breadcrumb className="hidden md:block md:fixed top-14 right-20 z-50 w-[calc(100vw-26rem)] mx-auto py-3 px-14 bg-white dark:bg-neutral-950">
       <BreadcrumbList>
-        <BreadcrumbItem>
+        <BreadcrumbItem key={"unique"}>
           <BreadcrumbLink asChild>
             <Link href="/">
               <Badge variant={"secondary"} className="py-0.5 px-2">Home</Badge>

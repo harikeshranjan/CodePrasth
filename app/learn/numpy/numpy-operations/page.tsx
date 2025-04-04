@@ -112,7 +112,7 @@ export default function NumPyOperationsPage() {
 
               <div className="mt-8 p-4 bg-neutral-50 dark:bg-neutral-900/20 rounded-lg border border-neutral-100 dark:border-neutral-800">
                 <p className="text-sm text-neutral-800 dark:text-neutral-300 font-medium">
-                  NumPy's operations are optimized for performance, often running 10-100x faster than equivalent Python code using lists.
+                  {`NumPy's operations are optimized for performance, often running 10-100x faster than equivalent Python code using lists.`}
                 </p>
               </div>
             </CardContent>

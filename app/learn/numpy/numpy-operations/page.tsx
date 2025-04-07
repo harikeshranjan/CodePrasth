@@ -289,8 +289,8 @@ print("Is arr1 equal to arr3?", arr1.shape == arr3.shape) # Output: False`}
               </CardDescription>
             </CardHeader>
             <CardContent className="text-base">
-              <Tabs defaultValue="horizontal" orientation="horizontal">
-                <TabsList className="grid w-full grid-cols-4">
+              <Tabs defaultValue=".concatenate()" orientation="horizontal">
+                <TabsList className="h-full flex flex-wrap gap-2">
                   <TabsTrigger value=".concatenate()">{`.concatenate()`}</TabsTrigger>
                   <TabsTrigger value=".vstack()">{`.vstack()`}</TabsTrigger>
                   <TabsTrigger value=".hstack()">{`.hstack()`}</TabsTrigger>

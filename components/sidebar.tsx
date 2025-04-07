@@ -73,7 +73,7 @@ export default function Sidebar({ sidebar }: { sidebar: SidebarProps[] }) {
         </DrawerContent>
       </Drawer>
 
-      <aside className="w-64 h-screen md:block hidden fixed top-14 left-16 z-50 border-r border-foreground/20 border-dashed overflow-y-auto">
+      <aside className="w-64 h-[calc(100vh-4rem)] md:block hidden fixed top-14 pb-10 left-16 z-50 border-r border-foreground/20 border-dashed overflow-y-auto ">
         <div className="flex items-center justify-center gap-2 px-5 pt-6 pb-4">
           <BookOpen size={18} className="text-primary" />
           <h2 className="text-lg font-medium text-foreground">
@@ -81,7 +81,7 @@ export default function Sidebar({ sidebar }: { sidebar: SidebarProps[] }) {
           </h2>
         </div>
         
-        <Separator className="bg-foreground/10 mx-4" />
+        <Separator className="bg-foreground/10" />
 
         <div className="py-6 px-3 space-y-8">
           {sidebar.map((section) => (

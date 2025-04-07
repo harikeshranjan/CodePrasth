@@ -9,7 +9,7 @@ import { CheckCircle, Code, ExternalLink, FileCode, GitBranch, Info, Play, Refre
 export default function ExpressTSDeployment() {
   return (
     <main className="w-full">
-      <section className="min-h-screen flex flex-col mb-10 md:pt-20 md:mx-16 border-x border-foreground/10 border-dashed overflow-y-auto">
+      <section className="min-h-screen flex flex-col pb-10 md:pt-20 md:mx-16 border-x border-foreground/10 border-dashed overflow-y-auto">
         <PageLocation />
         
         <div className="md:ml-72 mt-6 px-7 max-w-4xl pb-20">

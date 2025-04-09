@@ -34,7 +34,7 @@ export const languages = [
     title: "DSA",
     description: "Data Structures and Algorithms are the building blocks of computer science.",
     path: "/reference/dsa/arrays",
-    isUnderConstruction: true,
+    isUnderConstruction: false,
   },
   {
     id: "Docker",

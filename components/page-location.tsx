@@ -22,7 +22,7 @@ export default function PageLocation() {
 
   return (
     <Breadcrumb className="hidden md:block md:fixed top-14 right-20 z-50 w-[calc(100vw-26rem)] mx-auto py-3 px-14 bg-white dark:bg-neutral-950">
-      <BreadcrumbList>
+      <BreadcrumbList className="w-full flex items-center justify-end">
         <BreadcrumbItem key={"unique"}>
           <BreadcrumbLink asChild>
             <Link href="/">

@@ -37,7 +37,14 @@ export const languages = [
     isUnderConstruction: false,
   },
   {
-    id: "Docker",
+    id: "fastapi",
+    title: "FastAPI",
+    description: "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.",
+    path: "/reference/fastapi/crash-course",
+    isUnderConstruction: false,
+  },
+  {
+    id: "docker",
     title: "Docker",
     description: "Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.",
     path: "/reference/docker",
@@ -163,37 +170,52 @@ export const dsaSidebarLinks = [
         id: "sorting",
         title: "Sorting",
         path: "/reference/dsa/sorting",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
       },
       {
         id: "dynamic-programming",
         title: "Dynamic Programming",
         path: "/reference/dsa/dynamic-programming",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
       },
       {
         id: "greedy",
         title: "Greedy",
         path: "/reference/dsa/greedy",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
       },
       {
         id: "backtracking",
         title: "Backtracking",
         path: "/reference/dsa/backtracking",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
       },
       {
         id: "divide-and-conquer",
         title: "Divide and Conquer",
         path: "/reference/dsa/divide-and-conquer",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
       },
       {
         id: "bit-manipulation",
         title: "Bit Manipulation",
         path: "/reference/dsa/bit-manipulation",
-        isUnderConstruction: true,
+        isUnderConstruction: false,
+      }
+    ],
+  }
+]
+
+export const fastapiSidebarLinks = [
+  {
+    id: "crash-course",
+    heading: "Crash Course",
+    content: [
+      {
+        id: "fastapi-crash-course",
+        title: "FastAPI Crash Course",
+        path: "/reference/fastapi/crash-course",
+        isUnderConstruction: false,
       }
     ],
   }

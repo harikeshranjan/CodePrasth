@@ -82,7 +82,7 @@ export default function Sidebar({ sidebar }: { sidebar: SidebarProps[] }) {
         </SheetContent>
       </Sheet>
 
-      <aside className="w-64 h-[calc(100vh-4rem)] md:block hidden fixed top-14 pb-10 left-16 z-50 border-r border-foreground/20 border-dashed overflow-y-auto">
+      <aside className="w-64 h-[calc(100vh-4rem)] md:block hidden fixed top-14 pb-10 left-16 z-50 border-r border-foreground/20 border-dashed overflow-y-auto no-scrollbar">
         <div className="flex items-center justify-center gap-2 px-5 pt-6 pb-4">
           <BookOpen size={18} className="text-primary" />
           <h2 className="text-lg font-medium text-foreground">

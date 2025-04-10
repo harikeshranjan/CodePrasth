@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "lucide-react";
 
 export default function ReferencePage() {
   return (
-    <main className="w-full">
+    <main className="w-full min-h-screen flex flex-col">
       <section className="flex flex-col space-y-12 py-20 md:mx-16 border-x border-foreground/20 border-dashed">
         <div className="w-full flex px-5 md:px-10">
           <PageLocation />

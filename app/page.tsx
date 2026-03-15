@@ -13,6 +13,7 @@ import {
   Search,
 } from "lucide-react";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import CodeBlock from "@/components/code-block";
 
 const features = [
   {
@@ -172,33 +173,12 @@ export default function Home() {
               key={s.title}
               className="group relative flex flex-col rounded-2xl border border-border bg-background overflow-hidden hover:border-foreground/20 transition-colors duration-200"
             >
-              {/* Card header */}
-              <div className="flex items-center justify-between px-5 py-3.5 border-b border-border bg-muted/40">
-                <div className="flex items-center gap-2.5">
-                  <Badge
-                    variant="secondary"
-                    className="text-[11px] px-2.5 py-0.5"
-                  >
-                    {s.tag}
-                  </Badge>
-                  <span className="text-sm font-medium text-foreground">
-                    {s.title}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <span className="text-[11px] text-muted-foreground">
-                    {s.lang}
-                  </span>
-                  <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 p-1.5 rounded-md hover:bg-accent">
-                    <Copy size={13} className="text-muted-foreground" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Code block */}
-              <pre className="px-5 py-5 text-[12.5px] leading-relaxed text-muted-foreground font-mono overflow-x-auto scrollbar-none whitespace-pre">
-                <code>{s.code}</code>
-              </pre>
+              <CodeBlock
+                tag={s.tag}
+                title={s.title}
+                lang={s.lang}
+                code={s.code}
+              />
             </div>
           ))}
         </div>

@@ -23,7 +23,7 @@ export default function Header() {
     <>
       {/* ───────── Desktop Navbar ───────── */}
       <div className="hidden md:flex fixed top-5 left-0 right-0 w-full justify-center z-50">
-        <nav className="w-1/2 flex items-center justify-between gap-6 px-5 py-2.5 rounded-xl border border-border bg-background/80 backdrop-blur-md shadow-sm">
+        <nav className="w-1/2 flex items-center justify-between gap-6 px-5 py-2.5 rounded-xl border border-border bg-background/30 backdrop-blur-md shadow-sm">
 
           {/* Logo */}
           <Link

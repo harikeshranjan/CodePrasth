@@ -42,6 +42,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          {/* <Toast */}
         </ThemeProvider>
       </body>
     </html>

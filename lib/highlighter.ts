@@ -6,7 +6,7 @@ export async function getHighlighter() {
   if (!highlighter) {
     highlighter = await createHighlighter({
       themes: ["one-dark-pro", "github-light", "github-dark"],
-      langs: ["ts", "tsx", "js", "jsx", "bash", "json", "html", "css"]
+      langs: ["ts", "tsx", "js", "jsx", "bash", "json", "html", "css", "java", "typescript", "javascript", "python"],
     })
   }
 
@@ -24,6 +24,7 @@ const langMap: Record<string, string> = {
   css: "css",
   json: "json",
   bash: "bash",
+  java: "java",
 }
 
 export async function highlightCode(code: string, lang: string) {

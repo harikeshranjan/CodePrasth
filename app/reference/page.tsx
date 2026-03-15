@@ -7,11 +7,6 @@ import { TopicCard } from "@/components/topic-card";
 import { Search, BookOpen } from "lucide-react";
 import { topics } from "@/data/reference-topics";
 
-// ── This page is statically generated — no database needed ─────────────
-// All data comes from lib/reference.ts at build time.
-// When you add a new topic, just add it to the topics array.
-// ────────────────────────────────────────────────────────────────────────
-
 export default function ReferencePage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -67,17 +62,6 @@ export default function ReferencePage() {
             Production-ready snippets and notes, organized by topic. Pick a
             technology and start shipping.
           </p>
-
-          {/* Stats strip */}
-          {/* <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <span>{topics.length} topics</span>
-            <Separator orientation="vertical" className="h-3.5" />
-            <span>
-              {topics.reduce((acc, t) => acc + t.snippetCount, 0)} snippets
-            </span>
-            <Separator orientation="vertical" className="h-3.5" />
-            <span>{categories.length} categories</span>
-          </div> */}
         </div>
       </section>
 

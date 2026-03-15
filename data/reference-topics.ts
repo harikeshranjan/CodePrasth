@@ -1,5 +1,5 @@
 import { Topic } from "@/types/topic";
-import { GitBranch, TestTubeDiagonal } from "lucide-react";
+import { Cloud, GitBranch, TestTubeDiagonal } from "lucide-react";
 
 export const topics: Topic[] = [
   {
@@ -17,5 +17,13 @@ export const topics: Topic[] = [
     title: "Selenium",
     category: "Testing",
     description: "Snippets for automating web browsers with Selenium in Java.",
+  },
+  {
+    slug: "aws",
+    color: "blue",
+    icon: Cloud,
+    title: "AWS",
+    category: "Cloud",
+    description: "Snippets for working with Amazon Web Services (AWS).",
   }
 ]

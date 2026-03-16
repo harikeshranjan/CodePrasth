@@ -5,12 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { TopicCard } from "@/components/topic-card";
 import { Search, Code } from "lucide-react";
-import { topics } from "@/data/reference-topics";
-
-// ── This page is statically generated — no database needed ─────────────
-// All data comes from lib/reference.ts at build time.
-// When you add a new topic, just add it to the topics array.
-// ────────────────────────────────────────────────────────────────────────
+import { topics } from "@/data/learn-topic";
 
 export default function LearnPage() {
   const [search, setSearch] = useState("");

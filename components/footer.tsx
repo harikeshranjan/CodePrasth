@@ -8,18 +8,18 @@ const footerLinks = [
     heading: "Product",
     links: [
       { label: "Reference", href: "/reference" },
-      { label: "Snippets", href: "/snippets" },
       { label: "Learn", href: "/learn" },
-      { label: "Changelog", href: "/changelog" },
+      { label: "Sutra", href: "https://sutra-cli.vercel.app", external: true },
+      // { label: "Changelog", href: "/changelog" },
     ],
   },
   {
     heading: "Topics",
     links: [
-      { label: "Authentication", href: "/reference/auth" },
-      { label: "React hooks", href: "/reference/react" },
-      { label: "Database", href: "/reference/database" },
-      { label: "API design", href: "/reference/api" },
+      { label: "Git", href: "/reference/git" },
+      { label: "Selenium (Java)", href: "/reference/selenium" },
+      { label: "AWS", href: "/reference/aws" },
+      // { label: "API design", href: "/reference/api" },
     ],
   },
   {

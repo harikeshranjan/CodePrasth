@@ -3,7 +3,7 @@ import { Cloud, GitBranch, TestTubeDiagonal } from "lucide-react";
 
 export const topics: Topic[] = [
   {
-    slug: "git",
+    slug: "reference/git",
     color: "gray",
     icon: GitBranch,
     title: "Git",
@@ -11,7 +11,7 @@ export const topics: Topic[] = [
     description: "Snippets for common Git commands and workflows.",
   },
   {
-    slug: "selenium",
+    slug: "reference/selenium",
     color: "green",
     icon: TestTubeDiagonal,
     title: "Selenium",
@@ -19,7 +19,7 @@ export const topics: Topic[] = [
     description: "Snippets for automating web browsers with Selenium in Java.",
   },
   {
-    slug: "aws",
+    slug: "reference/aws",
     color: "blue",
     icon: Cloud,
     title: "AWS",

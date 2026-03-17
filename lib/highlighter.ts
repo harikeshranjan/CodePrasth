@@ -1,16 +1,35 @@
 import { createHighlighter } from "shiki"
 
-let highlighter: any
+// let highlighter: any
+
+// export async function getHighlighter() {
+//   if (!highlighter) {
+//     highlighter = await createHighlighter({
+//       themes: ["one-dark-pro", "github-light", "github-dark"],
+//       langs: ["ts", "tsx", "js", "jsx", "bash", "json", "html", "css", "java", "typescript", "javascript", "python"],
+//     })
+//   }
+
+//   return highlighter
+// }
+
+declare global {
+  var __shikiHighlighter__: Awaited<ReturnType<typeof createHighlighter>> | undefined
+}
 
 export async function getHighlighter() {
-  if (!highlighter) {
-    highlighter = await createHighlighter({
+  if (!global.__shikiHighlighter__) {
+    global.__shikiHighlighter__ = await createHighlighter({
       themes: ["one-dark-pro", "github-light", "github-dark"],
-      langs: ["ts", "tsx", "js", "jsx", "bash", "json", "html", "css", "java", "typescript", "javascript", "python"],
+      langs: [
+        "ts", "tsx", "js", "jsx",
+        "bash", "json", "html", "css",
+        "java", "typescript", "javascript", "python"
+      ],
     })
   }
 
-  return highlighter
+  return global.__shikiHighlighter__
 }
 
 const langMap: Record<string, string> = {
@@ -51,10 +70,12 @@ export async function highlightCode(code: string, lang: string) {
     theme: "github-dark",
     transformers: [
       {
-        pre: (node: PreNode) => {
-          node.properties.style = "background-color: transparent;"
+        pre(hast) {
+          if (hast.properties) {
+            (hast.properties as Record<string, unknown>).style = "background-color: transparent;";
+          }
         }
-      } as Transformer
+      }
     ],
   })
 }

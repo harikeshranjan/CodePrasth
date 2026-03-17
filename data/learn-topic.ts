@@ -3,7 +3,7 @@ import { Calculator, MemoryStick, MonitorCog, Network, Timer } from "lucide-reac
 
 export const topics: LearnTopic[] = [
   {
-    slug: "os",
+    slug: "#",
     color: "gray",
     icon: MonitorCog,
     title: "Operating System",
@@ -27,7 +27,7 @@ export const topics: LearnTopic[] = [
     ],
   },
   {
-    slug: "networking",
+    slug: "#",
     color: "gray",
     icon: Network,
     title: "Networking",
@@ -35,7 +35,7 @@ export const topics: LearnTopic[] = [
     description: "Learn about computer networking, including protocols, architectures, and security.",
   },
   {
-    slug: "quantum-physics",
+    slug: "#",
     color: "blue",
     icon: Calculator,
     title: "Quantum Physics",

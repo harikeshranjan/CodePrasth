@@ -15,10 +15,11 @@ const colorMap: Record<string, string> = {
 
 export function TopicCard({ topic, onClick }: { topic: LearnTopic, onClick?: () => void }) {
   const Icon = topic.icon;
+  const isReference = topic.slug.startsWith("reference/");
 
   return (
     <Link
-      href={`#`}
+      href={isReference ? `/${topic.slug}` : `${topic.slug}`} // Reference topics go to /reference/[slug], others to /learn/[slug]
       className="group flex flex-col gap-4 p-6 rounded-2xl border border-border bg-background hover:border-foreground/20 hover:bg-muted/30 transition-all duration-200"
       onClick={onClick}
     >

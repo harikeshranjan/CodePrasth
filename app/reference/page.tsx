@@ -34,7 +34,7 @@ export default function ReferencePage() {
     <main className="min-h-screen bg-background text-foreground">
 
       {/* ── Page Header ── */}
-      <section className="relative px-6 pt-20 pb-14 border-b border-border overflow-hidden">
+      <section className="relative px-6 pt-10 md:pt-24 pb-14 border-b border-border overflow-hidden">
         {/* Subtle grid background */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"

@@ -4,12 +4,15 @@ import { useState, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { TopicCard } from "@/components/topic-card";
+import { TopicDialog } from "@/components/topic-dialog";   // ← new import
 import { Search, Code } from "lucide-react";
 import { topics } from "@/data/learn-topic";
+import { LearnTopic } from "@/types/topic";               // ← new import
 
 export default function LearnPage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [selectedTopic, setSelectedTopic] = useState<LearnTopic | null>(null); // ← new
 
   const filtered = useMemo(() => {
     return topics.filter((t) => {
@@ -33,9 +36,14 @@ export default function LearnPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
 
+      {/* ── Topic Dialog ── */}
+      <TopicDialog
+        topic={selectedTopic}
+        onClose={() => setSelectedTopic(null)}
+      />
+
       {/* ── Page Header ── */}
-      <section className="relative px-6 pt-20 pb-14 border-b border-border overflow-hidden">
-        {/* Subtle grid background */}
+      <section className="relative px-6 pt-10 md:pt-24 pb-14 border-b border-border overflow-hidden">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
           style={{
@@ -59,7 +67,8 @@ export default function LearnPage() {
             Developer learning center
           </h1>
           <p className="text-base text-muted-foreground max-w-lg leading-relaxed mb-8">
-            Curated tutorials and guides to help you learn new technologies and improve your skills. Perfect for developers of all levels.
+            Curated tutorials and guides to help you learn new technologies and
+            improve your skills. Perfect for developers of all levels.
           </p>
         </div>
       </section>
@@ -118,7 +127,6 @@ export default function LearnPage() {
               const catTopics = topics.filter((t) => t.category === cat);
               return (
                 <div key={cat}>
-                  {/* Category heading */}
                   <div className="flex items-center gap-3 mb-5">
                     <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
                       {cat}
@@ -134,7 +142,11 @@ export default function LearnPage() {
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {catTopics.map((topic) => (
-                      <TopicCard key={topic.slug} topic={topic} />
+                      <TopicCard
+                        key={topic.slug}
+                        topic={topic}
+                        onClick={() => setSelectedTopic(topic)}
+                      />
                     ))}
                   </div>
                 </div>
@@ -142,11 +154,14 @@ export default function LearnPage() {
             })}
           </div>
         ) : (
-          // Flat grid when filtering/searching
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.length > 0 ? (
               filtered.map((topic) => (
-                <TopicCard key={topic.slug} topic={topic} />
+                <TopicCard
+                  key={topic.slug}
+                  topic={topic}
+                  onClick={() => setSelectedTopic(topic)}
+                />
               ))
             ) : (
               <div className="col-span-3 flex flex-col items-center justify-center py-24 text-center">

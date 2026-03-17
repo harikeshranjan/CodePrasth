@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-import { Topic } from "@/types/topic";
+import { LearnTopic } from "@/types/topic";
 
 const colorMap: Record<string, string> = {
   blue:   "bg-blue-50   text-blue-700   border-blue-200   dark:bg-blue-950   dark:text-blue-300   dark:border-blue-900",
@@ -13,23 +13,14 @@ const colorMap: Record<string, string> = {
   gray:   "bg-muted     text-foreground border-border",
 };
 
-const dotColorMap: Record<string, string> = {
-  blue:   "bg-blue-400",
-  teal:   "bg-teal-400",
-  green:  "bg-green-400",
-  amber:  "bg-amber-400",
-  red:    "bg-red-400",
-  purple: "bg-purple-400",
-  gray:   "bg-foreground/30",
-};
-
-export function TopicCard({ topic }: { topic: Topic }) {
+export function TopicCard({ topic, onClick }: { topic: LearnTopic, onClick?: () => void }) {
   const Icon = topic.icon;
 
   return (
     <Link
-      href={`/reference/${topic.slug}`}
+      href={`#`}
       className="group flex flex-col gap-4 p-6 rounded-2xl border border-border bg-background hover:border-foreground/20 hover:bg-muted/30 transition-all duration-200"
+      onClick={onClick}
     >
       {/* Header */}
       <div className="flex items-start justify-between">

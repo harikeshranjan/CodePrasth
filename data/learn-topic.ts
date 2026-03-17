@@ -1,7 +1,7 @@
-import { Topic } from "@/types/topic";
-import { Calculator, MonitorCog, Network } from "lucide-react";
+import { LearnTopic } from "@/types/topic";
+import { Calculator, MemoryStick, MonitorCog, Network, Timer } from "lucide-react";
 
-export const topics: Topic[] = [
+export const topics: LearnTopic[] = [
   {
     slug: "os",
     color: "gray",
@@ -9,6 +9,22 @@ export const topics: Topic[] = [
     title: "Operating System",
     category: "Software",
     description: "Learn about operating systems, their components, and how they manage hardware and software resources.",
+    subtopics: [
+      {
+        slug: "memory-management",
+        color: "gray",
+        icon: MemoryStick,
+        title: "Memory Management",
+        description: "Understand how operating systems manage memory, including concepts like paging, segmentation, and virtual memory.",
+      },
+      {
+        slug: "process-scheduling",
+        color: "gray",
+        icon: Timer,
+        title: "Process Scheduling",
+        description: "Learn about how operating systems schedule processes, including algorithms like round-robin, priority scheduling, and multilevel queues.",
+      },
+    ],
   },
   {
     slug: "networking",

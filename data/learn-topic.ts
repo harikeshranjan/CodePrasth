@@ -11,14 +11,14 @@ export const topics: LearnTopic[] = [
     description: "Learn about operating systems, their components, and how they manage hardware and software resources.",
     subtopics: [
       {
-        slug: "memory-management",
+        slug: "os/memory-management",
         color: "gray",
         icon: MemoryStick,
         title: "Memory Management",
         description: "Understand how operating systems manage memory, including concepts like paging, segmentation, and virtual memory.",
       },
       {
-        slug: "process-scheduling",
+        slug: "os/process-scheduling",
         color: "gray",
         icon: Timer,
         title: "Process Scheduling",

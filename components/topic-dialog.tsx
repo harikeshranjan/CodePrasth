@@ -140,7 +140,7 @@ export function TopicDialog({ topic, onClose }: TopicDialogProps) {
                       key={sub.slug}
                       className={`group text-left w-full rounded-xl border border-border p-4 transition-all duration-150 ${subColors.subtopicBg}`}
                       onClick={() => {
-                        router.push(`/learn/${topic.slug}/${sub.slug}`);
+                        router.push(`/learn/${sub.slug}`);
                         onClose();
                       }}
                     >

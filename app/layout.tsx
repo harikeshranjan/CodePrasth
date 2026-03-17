@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { SidebarProvider } from "@/hooks/use-sidebar";
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CodePrasth",
-  description: "CodePrasth is a website where you can both learn some common coding languages and go through some of the most common coding concepts. This website is a suitable place for beginners who forget the syntax and search for it every time.",
+  description: "A platform for sharing and learning code snippets and programming knowledge.",
 };
 
 export default function RootLayout({
@@ -27,21 +29,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={cn("font-sans", inter.variable)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </SidebarProvider>
+          <Header />
+          {children}
+          <Footer />
+          {/* <Toast */}
         </ThemeProvider>
       </body>
     </html>

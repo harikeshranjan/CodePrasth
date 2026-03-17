@@ -1,31 +1,23 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { Button } from "./ui/button"
+import { Moon, Sun } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-
-export default function ModeToggle() {
+function ModeToggle() {
   const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       size="icon"
-      onClick={toggleTheme}
-      className="cursor-pointer"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      aria-label="Toggle theme"
+      className="rounded-lg border border-border p-0.5 cursor-pointer transition-colors duration-200 hover:bg-accent"
     >
-      {theme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
-      ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
-      )}
-      <span className="sr-only">Toggle theme</span>
+      {theme === "light" ? <Moon /> : <Sun />}
     </Button>
   )
 }
+
+export default ModeToggle

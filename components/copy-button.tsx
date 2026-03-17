@@ -1,48 +1,35 @@
-"use client";
+"use client"
 
-import { useState } from 'react';
-import { Check, Copy } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Copy, Check } from "lucide-react"
+import { useState } from "react"
 
 interface CopyButtonProps {
-  code: string;
-  className?: string;
+  code: string
 }
 
-export default function CopyButton({ code, className = "" }: CopyButtonProps) {
-  const [copied, setCopied] = useState(false);
+export default function CopyButton({ code }: CopyButtonProps) {
+  const [copied, setCopied] = useState(false)
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }).catch((err) => {
-      console.error("Failed to copy code: ", err);
-    });
-  };
+  async function handleCopy() {
+    await navigator.clipboard.writeText(code)
+
+    setCopied(true)
+
+    setTimeout(() => {
+      setCopied(false)
+    }, 2000)
+  }
 
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button
-            onClick={copyToClipboard}
-            className={`absolute top-3 right-3 p-1.5 rounded-md border border-border hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all cursor-pointer ${
-              copied ? 'bg-primary/10 text-primary border-primary/30' : 'bg-background text-muted-foreground'
-            } ${className}`}
-            aria-label={copied ? "Copied" : "Copy"}
-          >
-            {copied ? (
-              <Check size={16} className="text-primary" />
-            ) : (
-              <Copy size={16} />
-            )}
-          </button>
-        </TooltipTrigger>
-        <TooltipContent side="left" align="center" className="text-xs">
-          {copied ? "Copied!" : "Copy"}
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
+    <button
+      onClick={handleCopy}
+      className="opacity-0 group-hover:opacity-100 transition-all duration-200 p-1.5 rounded-md hover:bg-accent"
+    >
+      {copied ? (
+        <Check size={13} className="text-green-500 transition-all" />
+      ) : (
+        <Copy size={13} className="text-muted-foreground transition-all" />
+      )}
+    </button>
+  )
 }

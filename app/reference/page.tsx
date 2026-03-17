@@ -1,40 +1,169 @@
-import LanguageBoxes from "@/components/language-boxes";
-import PageLocation from "@/components/page-location";
-import { languages } from "@/lib/datalists";
-import { ChevronDownIcon } from "lucide-react";
+"use client";
+
+import { useState, useMemo } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { TopicCard } from "@/components/topic-card";
+import { Search, BookOpen } from "lucide-react";
+import { topics } from "@/data/reference-topics";
 
 export default function ReferencePage() {
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const filtered = useMemo(() => {
+    return topics.filter((t) => {
+      const matchesCategory =
+        activeCategory === "All" || t.category === activeCategory;
+      const matchesSearch =
+        search.trim() === "" ||
+        t.title.toLowerCase().includes(search.toLowerCase()) ||
+        t.description.toLowerCase().includes(search.toLowerCase()) ||
+        t.category.toLowerCase().includes(search.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [search, activeCategory]);
+
+  const categories = useMemo(
+    () => Array.from(new Set(topics.map((t) => t.category))),
+    []
+  );
+  const allCategories = ["All", ...categories];
+
   return (
-    <main className="w-full min-h-screen flex flex-col">
-      <section className="flex flex-col space-y-12 py-20 md:mx-16 border-x border-foreground/20 border-dashed">
-        <div className="w-full flex px-5 md:px-10">
-          <PageLocation />
-        </div>
+    <main className="min-h-screen bg-background text-foreground">
 
-        <div className="w-full flex flex-col items-center justify-center space-y-12">
-          <h1 className="text-6xl font-bold text-center">Reference</h1>
-          <p className="text-center px-5 md:px-20 text-lg text-foreground/60 leading-8">
-            The reference section is a collection of code snippets and concepts that are used in the development of the website. Filter through the list of titles to refer the particular code snippet or concept you are looking for.
-          </p>
-          <p className="text-center text-xs px-5 md:px-20 text-foreground/60 leading-8">
-            &#x2764; More to come soon :&#41;
-          </p>
-        </div>
+      {/* ── Page Header ── */}
+      <section className="relative px-6 pt-10 md:pt-24 pb-14 border-b border-border overflow-hidden">
+        {/* Subtle grid background */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
 
-        <div className="flex flex-col justify-center items-center gap-4">
-          <p className="text-muted-foreground text-center text-sm animate-pulse">
-            Scroll down to see more</p>
-          <ChevronDownIcon size={32} className="text-foreground/50 animate-bounce cursor-pointer hover:text-foreground/80" />
+        <div className="relative max-w-5xl mx-auto">
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-7 h-7 rounded-lg border border-border bg-muted flex items-center justify-center">
+              <BookOpen size={13} className="text-foreground" />
+            </div>
+            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              Reference
+            </p>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
+            Developer reference
+          </h1>
+          <p className="text-base text-muted-foreground max-w-lg leading-relaxed mb-8">
+            Production-ready snippets and notes, organized by topic. Pick a
+            technology and start shipping.
+          </p>
         </div>
       </section>
 
-      <section className="border-t border-foreground/20 border-dashed border-x md:ml-16 md:mr-16 px-10">
-        <div className="py-10 ">
-          <h2 className="text-4xl text-center font-bold">Quick Links</h2>
+      {/* ── Filters + Grid ── */}
+      <section className="max-w-5xl mx-auto px-6 pt-10 pb-32">
+
+        {/* Search + Category filter row */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
+
+          {/* Search */}
+          <div className="relative w-full sm:w-72">
+            <Search
+              size={13}
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+            />
+            <Input
+              placeholder="Search topics…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="pl-8 h-9 text-sm rounded-xl border-border bg-background"
+            />
+          </div>
+
+          {/* Category pills */}
+          <div className="flex items-center gap-2 flex-wrap">
+            {allCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-150 ${
+                  activeCategory === cat
+                    ? "bg-foreground text-background"
+                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
-        <LanguageBoxes
-          languages={languages}
-        />
+
+        {/* Results count */}
+        {(search || activeCategory !== "All") && (
+          <p className="text-[12px] text-muted-foreground mb-6">
+            {filtered.length === 0
+              ? "No topics found"
+              : `${filtered.length} topic${filtered.length !== 1 ? "s" : ""} found`}
+          </p>
+        )}
+
+        {/* Topic grid — grouped by category when not searching */}
+        {search.trim() === "" && activeCategory === "All" ? (
+          <div className="space-y-12">
+            {categories.map((cat) => {
+              const catTopics = topics.filter((t) => t.category === cat);
+              return (
+                <div key={cat}>
+                  {/* Category heading */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+                      {cat}
+                    </p>
+                    <div className="flex-1 h-px bg-border" />
+                    <Badge
+                      variant="secondary"
+                      className="text-[11px] px-2 py-0.5 rounded-md"
+                    >
+                      {catTopics.length}
+                    </Badge>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {catTopics.map((topic) => (
+                      <TopicCard key={topic.slug} topic={topic} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          // Flat grid when filtering/searching
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filtered.length > 0 ? (
+              filtered.map((topic) => (
+                <TopicCard key={topic.slug} topic={topic} />
+              ))
+            ) : (
+              <div className="col-span-3 flex flex-col items-center justify-center py-24 text-center">
+                <div className="w-12 h-12 rounded-2xl border border-border bg-muted flex items-center justify-center mb-4">
+                  <Search size={18} className="text-muted-foreground" />
+                </div>
+                <p className="text-sm font-medium text-foreground mb-1">
+                  No topics found
+                </p>
+                <p className="text-[13px] text-muted-foreground max-w-xs">
+                  Try a different keyword or clear the filter.
+                </p>
+              </div>
+            )}
+          </div>
+        )}
       </section>
     </main>
   );

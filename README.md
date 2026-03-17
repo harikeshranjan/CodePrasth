@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 Codeprasth `v2.0.0`
 
-## Getting Started
+**Codeprasth** is a unified digital sanctuary designed to bridge the gap between high-level software implementation and the fundamental sciences. Whether you are looking for a quick syntax reference or diving deep into the quantum mechanics that power modern computing, Codeprasth is your foundational guide.
 
-First, run the development server:
+[Explore Reference](/reference) • [Start Learning](/learn)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Project Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The platform is split into two primary pillars:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. 📂 Reference
+*The "How"* — A curated library of code snippets, API patterns, and technical documentation. 
+- **Quick Lookups:** Standard implementations of common algorithms.
+- **Tech Stacks:** Syntax guides for modern frameworks and languages.
+- **Best Practices:** Design patterns and architecture references for scalable software.
 
-## Learn More
+### 2. 🧠 Learn
+*The "Why"* — An educational hub dedicated to the fundamental principles of STEM and Computer Science.
+- **Fundamental Sciences:** Quantum Physics and Mathematics (Calculus, Linear Algebra, Discrete Math).
+- **Core CS:** Operating Systems, Computer Networking, and Database Theory.
+- **Guided Paths:** Structured walkthroughs from absolute zero to mastery.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework:** [Next.js 16+](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Components:** [Shadcn UI](https://ui.shadcn.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Type Safety:** [TypeScript](https://www.typescriptlang.org/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

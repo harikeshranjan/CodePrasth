@@ -1,5 +1,5 @@
 import ContentTable from "@/components/content-table";
-import { memoryManagementTopics } from "@/data/learn-memory-management-content-table";
+import { processSchedulingTopics } from "@/data/learn-process-scheduling-contemt-table";
 
 export default function ProcessSchedulingLayout({
   children,
@@ -13,7 +13,7 @@ export default function ProcessSchedulingLayout({
         <div className="flex-1 min-w-0">{children}</div>
 
         {/* Sticky TOC — only visible on xl+ */}
-        <ContentTable data={memoryManagementTopics} />
+        <ContentTable data={processSchedulingTopics} />
       </div>
     </div>
   );
